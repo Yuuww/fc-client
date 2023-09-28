@@ -5,7 +5,7 @@ let data = {
 };
 
 // Interface
-const accessView = document.getElementById("login-view");
+const accessView = document.getElementById("access-view");
 const loginView = document.getElementById("login-view");
 const signupView = document.getElementById("signup-view");
 let activeView = accessView;
