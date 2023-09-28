@@ -1,0 +1,94 @@
+* {
+  font-family: Helvetica, sans-serif;
+  color: #c9d6e0;
+}
+body {
+  margin: 0;
+
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view {
+  display: none;
+  border-radius: 16px;
+  width: 300px;
+}
+.active {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+#access-view {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  & > h1 {
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  & > span {
+    font-size: 14px;
+    color: #d44562;
+  }
+  & > :nth-child(3) {
+    border-radius: 6px;
+    background-color: #101010;
+    display: flex;
+    justify-content: stretch;
+    gap: 5px;
+    & > input {
+      border-radius: 6px;
+      border-style: none;
+      padding: 10px;
+      background-color: #101010;
+      width: 250px;
+      height: 20px;
+      font-size: 16px;
+    }
+    & > input:focus {
+      outline: none;
+    }
+    & > input::placeholder {
+      color: #c9d6e070;
+    }
+    & > svg {
+      cursor: pointer;
+      margin: 6px;
+      border-radius: 4px;
+      padding: 4px;
+      height: 20px;
+      width: 20px;
+      & > path {
+        fill: #c9d6e070;
+      }
+    }
+    & > svg:hover {
+      background-color: #c9d6e010;
+    }
+  }
+  & > :last-child {
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #852beb;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > svg {
+      height: 28px;
+      width: 28px;
+      & > path {
+        fill: #c9d6e0;
+      }
+    }
+  }
+}
