@@ -74,7 +74,7 @@ function logIn() {
   fetch("https://api.get-done.de:3001/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ access: flashcardData.access, name: logInName, password: logInPassword }),
+    body: JSON.stringify({ access: flashcardData.access, account: logInName, password: logInPassword }),
   })
     .then((response) => response.json())
     .then((data) => {
