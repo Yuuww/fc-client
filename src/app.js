@@ -31,7 +31,8 @@ function eccess() {
     .then((data) => {
       if (data.response === true) {
         data.access = accessPassword;
-        console.log(data);
+        accessError.style.color = "green";
+        accessError.innerText = "Success";
       } else {
         accessError.innerText = `Error: ${data.error}`;
       }
