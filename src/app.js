@@ -1,16 +1,25 @@
 // Data
-const accessInput = document.getElementById("access-password");
-const accessShowPath = document.getElementById("show-path");
-const accessHidePath = document.getElementById("hide-path");
-const accessError = document.getElementById("access-error");
 let data = {
   access: null,
   accounts: {},
 };
 
 // Interface
-function switchView() {}
+const accessView = document.getElementById("login-view");
+const loginView = document.getElementById("login-view");
+const signupView = document.getElementById("signup-view");
+let activeView = accessView;
+function switchView(view) {
+  activeView.classList.toggle("active");
+  view.classList.toggle("active");
+  activeView = view;
+}
+
 // Access
+const accessInput = document.getElementById("access-password");
+const accessShowPath = document.getElementById("show-path");
+const accessHidePath = document.getElementById("hide-path");
+const accessError = document.getElementById("access-error");
 function togglePasswordVisability() {
   accessShowPath.classList.toggle("hidden");
   accessHidePath.classList.toggle("hidden");
@@ -31,8 +40,7 @@ function eccess() {
     .then((data) => {
       if (data.response === true) {
         data.access = accessPassword;
-        accessError.style.color = "green";
-        accessError.innerText = "Success";
+        switchView(loginView);
       } else {
         accessError.innerText = `Error: ${data.error}`;
       }

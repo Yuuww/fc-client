@@ -92,3 +92,8 @@ body {
     }
   }
 }
+#login-view {
+  background-color: #852beb;
+  width: 400pc;
+  height: 300px;
+}
