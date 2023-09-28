@@ -31,7 +31,7 @@ function eccess() {
     .then((data) => {
       if (data.response === true) {
         data.access = accessPassword;
-        console.log("yes");
+        console.log(data);
       } else {
         accessError.innerText = `Error: ${data.error}`;
       }
