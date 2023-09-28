@@ -3,8 +3,8 @@
   color: #c9d6e0;
 }
 body {
+  overflow: hidden;
   margin: 0;
-
   background-color: black;
   height: 100vh;
   display: flex;
