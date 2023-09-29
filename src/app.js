@@ -9,7 +9,7 @@ const accessView = document.getElementById("access-view");
 const loginView = document.getElementById("login-view");
 const signupView = document.getElementById("signup-view");
 const stacksView = document.getElementById("stacks-view");
-let activeView = loginView;
+let activeView = accessView;
 function switchView(view) {
   activeView.classList.toggle("active");
   view.classList.toggle("active");
@@ -39,7 +39,7 @@ function toggleAccessPasswordVisability() {
     accessInput.type = "password";
   }
 }
-function eccess() {
+function access() {
   let accessPassword = accessInput.value;
   fetch("https://api.get-done.de:3001/access", {
     method: "POST",
