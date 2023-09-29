@@ -8,11 +8,21 @@ let flashcardData = {
 const accessView = document.getElementById("access-view");
 const loginView = document.getElementById("login-view");
 const signupView = document.getElementById("signup-view");
-let activeView = accessView;
+const stacksView = document.getElementById("stacks-view");
+let activeView = loginView;
 function switchView(view) {
   activeView.classList.toggle("active");
   view.classList.toggle("active");
   activeView = view;
+}
+function toSignUp() {
+  switchView(signupView);
+}
+function toLogIn() {
+  switchView(loginView);
+}
+function toStacks() {
+  switchView(stacksView);
 }
 
 // Access
@@ -51,8 +61,6 @@ function eccess() {
     });
 }
 
-function signUp() {}
-
 // Log in
 const logInInputName = document.getElementById("login-name");
 const logInInput = document.getElementById("login-password");
@@ -78,10 +86,10 @@ function logIn() {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data.response === true) {
+      if (data.response) {
         flashcardData.accounts[logInName] = data.account;
-        console.log(data.account);
-        //switchView(loginView);
+        console.log(flashcardData);
+        switchView(stacksView);
       } else {
         logInError.innerText = `Error: ${data.error}`;
       }
@@ -91,6 +99,10 @@ function logIn() {
       logInError.innerText = "Error: API dose not response.";
     });
 }
+
+// Sign in
+function signUp() {}
+
 function switchAccount() {}
 // Stacks
 function createStack() {}

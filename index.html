@@ -7,6 +7,7 @@
     <title>Flashcards</title>
   </head>
   <body>
+    <!--############################################################################################-->
     <div id="access-view" class="active view">
       <h1>Flashcards</h1>
       <span id="access-error"></span>
@@ -30,6 +31,7 @@
         </svg>
       </div>
     </div>
+    <!--############################################################################################-->
     <div id="login-view" class="view">
       <h1>Log in</h1>
       <span id="login-error"></span>
@@ -53,14 +55,27 @@
           <path d="M395-285 226-455l50-50 119 118 289-288 50 51-339 339Z" />
         </svg>
       </div>
-      <span>Haven't created an account yet? <span onclick="">Sign up</span></span>
+      <span>Haven't created an account yet? <span onclick="toSignUp()">Sign up</span></span>
     </div>
-    <div id="signup-view" class="view"></div>
-    <div id="profiles-view" class="view"></div>
-    <div id="stacks-view" class="view"></div>
-    <div id="cards-view" class="view"></div>
-    <div id="lern-view" class="view"></div>
-    <div id="alert-view" class="view"></div>
+    <!--############################################################################################-->
+    <div id="signup-view" class="view">
+      <h1>Sign up</h1>
+    </div>
+    <div id="accounts-view" class="view">
+      <h1>Accounts</h1>
+    </div>
+    <div id="stacks-view" class="view">
+      <h1>Stacks</h1>
+    </div>
+    <div id="cards-view" class="view">
+      <h1>Cards</h1>
+    </div>
+    <div id="lern-view" class="view">
+      <h1>Lern</h1>
+    </div>
+    <div id="settings-view" class="view">
+      <h1>Settings</h1>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
