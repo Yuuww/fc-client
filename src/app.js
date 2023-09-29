@@ -138,7 +138,7 @@ function signUp() {
   fetch("https://api.get-done.de:3001/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ access: flashcardData.access, account: logInName, password: signUpPasswordOne }),
+    body: JSON.stringify({ access: flashcardData.access, account: signUpName, password: signUpPasswordOne }),
   })
     .then((response) => response.json())
     .then((data) => {
