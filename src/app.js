@@ -135,7 +135,7 @@ function signUp() {
     signUpError.innerText = "Error: Passwords do not match.";
     return;
   }
-  fetch("https://api.get-done.de:3001/login", {
+  fetch("https://api.get-done.de:3001/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ access: flashcardData.access, account: signUpName, password: signUpPasswordOne }),
