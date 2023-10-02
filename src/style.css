@@ -282,3 +282,47 @@ body {
     }
   }
 }
+#stacks-view {
+  padding: 20px;
+  width: 300px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  & > h1 {
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  & > :nth-child(2) {
+    border-radius: 6px;
+    background-color: #101010;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & > div {
+      cursor: pointer;
+      margin: 6px;
+      border-radius: 4px;
+      padding: 4px 8px;
+      height: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+    & > svg {
+      cursor: pointer;
+      margin: 6px;
+      border-radius: 4px;
+      padding: 4px;
+      height: 20px;
+      width: 20px;
+      & > path {
+        fill: #c9d6e070;
+      }
+    }
+    & > svg:hover,
+    div:hover {
+      background-color: #c9d6e010;
+    }
+  }
+}

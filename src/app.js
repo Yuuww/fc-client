@@ -1,6 +1,7 @@
 // Data
 let flashcardData = {
   access: null,
+  active: null,
   accounts: {},
 };
 
@@ -9,20 +10,32 @@ const accessView = document.getElementById("access-view");
 const loginView = document.getElementById("login-view");
 const signupView = document.getElementById("signup-view");
 const stacksView = document.getElementById("stacks-view");
+const settingsView = document.getElementById("settings-view");
+const accountsView = document.getElementById("accounts-view");
 let activeView = accessView;
-function switchView(view) {
+function switchView(view, active) {
   activeView.classList.toggle("active");
   view.classList.toggle("active");
   activeView = view;
+  if (typeof active === "string") {
+    flashcardData.active = active;
+    loadActiveAccount();
+  }
 }
 function toSignUp() {
-  switchView(signupView);
+  switchView(signupView, null);
 }
 function toLogIn() {
-  switchView(loginView);
+  switchView(loginView, null);
 }
 function toStacks() {
-  switchView(stacksView);
+  switchView(stacksView, flashcardData.active);
+}
+function toSettings() {
+  switchView(settingsView, flashcardData.active);
+}
+function toAccounts() {
+  switchView(accessView, flashcardData.active);
 }
 
 // Access
@@ -88,8 +101,8 @@ function logIn() {
     .then((data) => {
       if (data.response) {
         flashcardData.accounts[logInName] = data.account;
-        console.log(flashcardData);
-        switchView(stacksView);
+        flashcardData.active = logInName;
+        switchView(stacksView, flashcardData.active);
       } else {
         logInError.innerText = `Error: ${data.error}`;
       }
@@ -144,8 +157,8 @@ function signUp() {
     .then((data) => {
       if (data.response) {
         flashcardData.accounts[signUpName] = data.account;
-        console.log(flashcardData);
-        switchView(stacksView);
+        flashcardData.active = signUpName;
+        switchView(stacksView, flashcardData.active);
       } else {
         signUpError.innerText = `Error: ${data.error}`;
       }
@@ -156,8 +169,29 @@ function signUp() {
     });
 }
 
-function switchAccount() {}
+// Update
+const updateError = document.getElementById("update-error");
+function update() {
+  fetch("https://api.get-done.de:3001/update", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ access: flashcardData.access, account: flashcardData.active, password: flashcardData.accounts[flashcardData.active].stacks }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.response) {
+      } else {
+        updateError.innerText = `Error: ${data.error}`;
+      }
+    })
+    .catch((error) => {
+      console.error("Fehler bei der API-Anfrage:", error);
+      updateError.innerText = "Error: API dose not response.";
+    });
+}
+
 // Stacks
+const stacksHead = document.getElementById("stacks-head");
 function createStack() {}
 function updateStack() {}
 function deleteStack() {}
@@ -169,3 +203,8 @@ function deleteCard() {}
 function turnCard() {}
 function rightGuess() {}
 function wrongGuess() {}
+// Load
+function loadActiveAccount() {
+  // Stacks
+  stacksHead.innerHTML = `<div onclick="toAccounts()">${flashcardData.active}</div><svg onclick="toSettings()" viewBox="0 -960 960 960"><path d="m367-80-15-126q-10-6-22-13t-22-13l-117 49L78-378l100-76v-52L78-582l113-195 117 49q10-6 22-13t22-13l15-126h226l15 126q10 6 22 13t22 13l117-49 113 195-99 76v52l99 76-113 195-117-49q-10 6-22 13t-22 13L593-80H367Zm113-257q59 0 101-42t42-101q0-59-42-101t-101-42q-59 0-101 42t-42 101q0 59 42 101t101 42Z"/></svg>`;
+}
