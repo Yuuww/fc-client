@@ -192,8 +192,21 @@ function update() {
 
 // Stacks
 const stacksHead = document.getElementById("stacks-head");
-function createStack() {}
-function updateStack() {}
+const stacksNew = document.getElementById("stacks-new");
+const stacksList = document.getElementById("stacks-list");
+function createStack() {
+  flashcardData.accounts[flashcardData.active].stacks.push({ stackName: stacksNew.value, cards: [] });
+  updateStack();
+  stacksNew.value = "";
+}
+function updateStack() {
+  update();
+  let stackElements = "";
+  flashcardData.accounts[flashcardData.active].stacks.array.forEach((stack) => {
+    stackElements += `<div><span>${stack.stackName}</span></div>`;
+  });
+  stacksList.innerHTML = stackElements;
+}
 function deleteStack() {}
 // Cards
 function createCard() {}
