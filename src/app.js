@@ -220,4 +220,5 @@ function wrongGuess() {}
 function loadActiveAccount() {
   // Stacks
   stacksHead.innerHTML = `<div onclick="toAccounts()">${flashcardData.active}</div><svg onclick="toSettings()" viewBox="0 -960 960 960"><path d="m367-80-15-126q-10-6-22-13t-22-13l-117 49L78-378l100-76v-52L78-582l113-195 117 49q10-6 22-13t22-13l15-126h226l15 126q10 6 22 13t22 13l117-49 113 195-99 76v52l99 76-113 195-117-49q-10 6-22 13t-22 13L593-80H367Zm113-257q59 0 101-42t42-101q0-59-42-101t-101-42q-59 0-101 42t-42 101q0 59 42 101t101 42Z"/></svg>`;
+  updateStack();
 }
