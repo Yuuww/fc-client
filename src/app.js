@@ -200,7 +200,7 @@ function createStack() {
   stacksNew.value = "";
 }
 function updateStack() {
-  update();
+  //update();
   let stackElements = "";
   flashcardData.accounts[flashcardData.active].stacks.array.forEach((stack) => {
     stackElements += `<div><span>${stack.stackName}</span></div>`;
