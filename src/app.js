@@ -35,7 +35,7 @@ function toSettings() {
   switchView(settingsView, flashcardData.active);
 }
 function toAccounts() {
-  switchView(accessView, flashcardData.active);
+  switchView(accountsView, flashcardData.active);
 }
 
 // Access
